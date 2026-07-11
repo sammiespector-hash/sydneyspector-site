@@ -133,6 +133,16 @@
   .card p{color:var(--ink-soft);font-size:15px}
   .card .k{font-family:"Caveat",cursive;color:var(--pen);font-size:28px;line-height:1;display:block;margin-bottom:12px}
 
+  /* services */
+  .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;align-items:start}
+  .service-block{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px}
+  .service-block h3{font-size:19px;color:var(--ivy-deep);margin-bottom:6px}
+  .service-block .service-note{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
+  .service-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .service-block .service-note ~ .service-list{margin-top:0}
+  .service-list li{position:relative;padding-left:20px;color:var(--ink-soft);font-size:15px;line-height:1.5}
+  .service-list li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--brass)}
+
   /* about */
   .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
   .about-body p{color:var(--ink-soft);font-size:16.5px;margin-top:16px}
@@ -193,7 +203,7 @@
   }
 
   @media(max-width:900px){
-    .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+    .hero-grid,.about-grid,.contact-grid,.services-grid{grid-template-columns:1fr;gap:44px}
     .cards{grid-template-columns:1fr}
     .reader{max-width:400px}
     .reader-page{transform:none}
@@ -321,6 +331,36 @@
           <span class="k">03</span>
           <h3>Confidence is rewarded</h3>
           <p>School lists, timelines, essays, recommendation planning. Families who start planning early and make deliberate choices hold a real, compounding advantage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section-alt">
+    <div class="wrap reveal">
+      <p class="eyebrow">Services offered</p>
+      <h2 class="lead-head">Support that meets your student where they are.</h2>
+      <div class="services-grid">
+        <div class="service-block">
+          <h3>Tutoring</h3>
+          <ul class="service-list">
+            <li>Classroom tutoring through middle school subjects, plus English and social studies through advanced and senior-year courses</li>
+            <li>Test prep tutoring for the SAT/ACT</li>
+            <li>University-focused extracurricular, internship, and course selection</li>
+          </ul>
+        </div>
+        <div class="service-block">
+          <h3>College Counseling</h3>
+          <p class="service-note">Choose services a la carte, or inquire about a comprehensive package.</p>
+          <ul class="service-list">
+            <li>Building a school list</li>
+            <li>Filling out the Common and Coalition applications, with attention to areas often overlooked, such as extracurricular descriptions and additional information</li>
+            <li>Personal statement brainstorming and editing</li>
+            <li>Recommendation letter strategy</li>
+            <li>Arts and sciences additional portfolio strategy</li>
+            <li>School-specific supplement support</li>
+          </ul>
         </div>
       </div>
     </div>
