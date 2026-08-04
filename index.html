@@ -126,6 +126,21 @@
   .service-sublist li::before{content:"";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--brass);opacity:.55}
   .service-subnote{display:block;margin-top:3px;font-size:13px;font-style:italic;color:var(--ink-soft)}
 
+  .pricing-block{grid-column:1 / -1}
+  .pricing-columns{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:24px}
+  .pricing-group h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:16px;color:var(--brass);letter-spacing:.02em;margin:0 0 4px}
+  .pricing-list{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .pricing-list li{display:flex;flex-direction:column;gap:3px}
+  .pricing-list .row{display:flex;align-items:baseline;gap:6px}
+  .pricing-list .label{position:relative;overflow:hidden;flex:1;color:var(--ink-soft);font-size:14.5px;line-height:1.4;padding-bottom:3px}
+  .pricing-list .label::after{content:". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";position:absolute;left:0;bottom:1px;white-space:nowrap;color:var(--line);letter-spacing:1px}
+  .pricing-list .price{flex-shrink:0;font-size:14.5px;font-weight:600;color:var(--ivy-deep);white-space:nowrap}
+  .pricing-list .pricing-note{font-family:inherit;font-size:13px;font-style:italic;color:var(--ink-soft);font-weight:400;transform:none;display:block}
+  .pricing-block .form-note{margin-top:22px}
+  .pricing-subhead{font-size:13.5px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);margin:18px 0 0}
+  .pricing-group h4 + .pricing-subhead{margin-top:12px}
+  .pricing-desc{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin:6px 0 0}
+
   /* about */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
   .about-body p{color:var(--ink-soft);font-size:16.5px;margin-top:16px}
@@ -190,6 +205,7 @@
 
   @media(max-width:900px){
     .hero-grid,.about-grid,.contact-grid,.services-grid{grid-template-columns:1fr;gap:44px}
+    .pricing-columns{grid-template-columns:1fr;gap:28px}
     .cards{grid-template-columns:1fr}
     .nav-links{
       position:absolute;top:66px;left:0;right:0;background:var(--paper);
@@ -425,6 +441,40 @@
             <li>Arts and sciences additional portfolio strategy</li>
             <li>School-specific supplement support</li>
           </ul>
+        </div>
+        <div class="service-block pricing-block">
+          <h3>Pricing</h3>
+          <p class="service-note">Rates are hourly unless noted. Custom packages available &mdash; reach out to discuss your student's needs.</p>
+          <div class="pricing-columns">
+            <div class="pricing-group">
+              <h4>Tutoring</h4>
+              <p class="pricing-subhead">Classroom subject tutoring</p>
+              <ul class="pricing-list">
+                <li><div class="row"><span class="label">Elementary and Middle School core curriculum</span><span class="price">$100/hour</span></div></li>
+                <li><div class="row"><span class="label">Advanced and High School English</span><span class="price">$125/hour</span></div></li>
+                <li><div class="row"><span class="label">Advanced and High School Social Studies</span><span class="price">$125/hour</span></div></li>
+              </ul>
+              <ul class="pricing-list">
+                <li><div class="row"><span class="label">Standardized test preparation tutoring for SAT/ACT</span><span class="price">$200/hour</span></div></li>
+                <li><div class="row"><span class="label">University-focused extracurricular, internship, and course selection</span><span class="price">$175</span></div><span class="pricing-note">An hour-long planning session with focus on long-term goals</span></li>
+              </ul>
+            </div>
+            <div class="pricing-group">
+              <h4>College Counseling</h4>
+              <p class="pricing-subhead">Comprehensive College Counseling Program</p>
+              <p class="pricing-desc">Customized support for every step of the application process. Each session will focus on your student's current needs. Together we can build a school list, fill out the common application, perfect the personal statement, prepare school-specific supplements, plan recommendation letter strategy, and finalize any additional portfolios. Completed applications can get a full review prior to submission.</p>
+              <ul class="pricing-list">
+                <li><div class="row"><span class="label">10 hours</span><span class="price">$225/hour</span></div></li>
+                <li><div class="row"><span class="label">20 hours</span><span class="price">$200/hour</span></div></li>
+                <li><div class="row"><span class="label">30 hours</span><span class="price">$175/hour</span></div></li>
+              </ul>
+              <ul class="pricing-list">
+                <li><div class="row"><span class="label">Personal Statement Brainstorming and Editing</span><span class="price">$275</span></div><span class="pricing-note">An hour-long brainstorming session, up to three rounds of edits, and a 30 minute follow up session.</span></li>
+                <li><div class="row"><span class="label">School Specific Supplement Support</span><span class="price">$250/supplement</span></div><span class="pricing-note">An hour-long planning session and up to three rounds of edits per school supplement.</span></li>
+                <li><div class="row"><span class="label">Building a School List</span><span class="price">$275</span></div><span class="pricing-note">An hour-long call to determine student's needs and preferences and a follow-up call to share a tailored list of recommended colleges and universities.</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
