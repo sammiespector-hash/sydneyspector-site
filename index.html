@@ -139,6 +139,45 @@
   .pricing-group h4 + .pricing-subhead{margin-top:12px}
   .pricing-desc{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin:6px 0 0}
 
+  /* testimonials */
+  .testimonials{padding-top:0}
+  .quote-carousel{margin-top:36px;position:relative}
+  .quote-viewport{display:grid}
+  .quote-card{
+    grid-area:1/1;background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius);padding:36px 40px 30px;
+    opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s ease;
+  }
+  .quote-card.is-active{opacity:1;visibility:visible;pointer-events:auto}
+  .quote-card .mark{
+    display:block;font-family:"Fraunces",Georgia,serif;font-size:52px;line-height:.55;
+    color:var(--brass);opacity:.45;margin-bottom:18px;
+  }
+  .quote-card blockquote{
+    margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;
+    font-size:clamp(18px,2vw,22px);line-height:1.45;color:var(--ink);max-width:62ch;
+  }
+  .quote-card cite{
+    display:block;margin-top:22px;font-style:normal;font-size:12.5px;font-weight:600;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .quote-card cite::before{content:"";display:inline-block;width:20px;height:1px;background:var(--brass);vertical-align:middle;margin-right:11px}
+  .quote-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:24px}
+  .quote-arrow{
+    flex:none;width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+    padding:0;border:1px solid var(--line);border-radius:50%;background:var(--paper);
+    color:var(--ivy);cursor:pointer;transition:background .2s,border-color .2s,color .2s;
+  }
+  .quote-arrow:hover{background:var(--ivy);border-color:var(--ivy);color:var(--paper)}
+  .quote-arrow svg{width:14px;height:14px;display:block}
+  .quote-dots{display:flex;gap:10px;justify-content:center}
+  .quote-dots button{
+    width:9px;height:9px;padding:0;border-radius:50%;
+    border:1px solid var(--brass);background:transparent;cursor:pointer;
+    transition:background .25s;
+  }
+  .quote-dots button[aria-selected="true"]{background:var(--brass)}
+
   /* about */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
   .about-body p{color:var(--ink-soft);font-size:16.5px;margin-top:16px}
@@ -199,6 +238,7 @@
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
+    .quote-card{transition:none}
   }
 
   @media(max-width:900px){
@@ -218,6 +258,7 @@
   @media(max-width:560px){
     body{font-size:16px}
     section{padding:60px 0}
+    .quote-card{padding:28px 24px 24px}
     .hero{padding:56px 0 60px}
     .step{grid-template-columns:1fr;gap:8px}
     .row2{grid-template-columns:1fr}
@@ -416,6 +457,49 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="wrap reveal">
+      <p class="eyebrow">What families say</p>
+      <div class="quote-carousel" id="quotes">
+        <div class="quote-viewport" aria-live="polite">
+
+          <figure class="quote-card is-active" role="group" aria-roledescription="quote" aria-label="1 of 3">
+            <span class="mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>A great help tutoring my nephew, his grades went up significantly. Call her, you won&rsquo;t be sorry.</blockquote>
+            <figcaption><cite>Scott</cite></figcaption>
+          </figure>
+
+          <figure class="quote-card" role="group" aria-roledescription="quote" aria-label="2 of 3">
+            <span class="mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>We just started to look into options for college prep and had a great experience with Sydney. We had a lot of questions and she was a wealth of knowledge and really helped us navigate different options.</blockquote>
+            <figcaption><cite>Sandra</cite></figcaption>
+          </figure>
+
+          <figure class="quote-card" role="group" aria-roledescription="quote" aria-label="3 of 3">
+            <span class="mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>Sydney really understands the admissions process and really prepared our daughter to become a competitive applicant. Very happy with her services!</blockquote>
+            <figcaption><cite>Vu</cite></figcaption>
+          </figure>
+
+        </div>
+        <div class="quote-controls">
+          <button type="button" class="quote-arrow" data-dir="-1" aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 4 7 12 15 20"></polyline></svg>
+          </button>
+          <div class="quote-dots" role="tablist" aria-label="Choose a testimonial">
+            <button type="button" role="tab" aria-selected="true" aria-label="Testimonial 1"></button>
+            <button type="button" role="tab" aria-selected="false" aria-label="Testimonial 2"></button>
+            <button type="button" role="tab" aria-selected="false" aria-label="Testimonial 3"></button>
+          </div>
+          <button type="button" class="quote-arrow" data-dir="1" aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 4 17 12 9 20"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="section-alt">
     <div class="wrap">
@@ -494,6 +578,37 @@
     entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
   },{threshold:.14});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // testimonial carousel
+  (function(){
+    var root=document.getElementById('quotes');
+    if(!root) return;
+    var slides=root.querySelectorAll('.quote-card');
+    var dots=root.querySelectorAll('.quote-dots button');
+    var i=0,timer=null,DELAY=6500;
+
+    function show(n){
+      i=(n+slides.length)%slides.length;
+      slides.forEach(function(s,k){s.classList.toggle('is-active',k===i);});
+      dots.forEach(function(d,k){d.setAttribute('aria-selected',k===i);});
+    }
+    function start(){ stop(); timer=setInterval(function(){show(i+1);},DELAY); }
+    function stop(){ if(timer){clearInterval(timer);timer=null;} }
+
+    dots.forEach(function(d,k){
+      d.addEventListener('click',function(){show(k);start();});
+    });
+    root.querySelectorAll('.quote-arrow').forEach(function(a){
+      a.addEventListener('click',function(){show(i+Number(a.dataset.dir));start();});
+    });
+    root.addEventListener('mouseenter',stop);
+    root.addEventListener('mouseleave',start);
+    root.addEventListener('focusin',stop);
+    root.addEventListener('focusout',start);
+    document.addEventListener('visibilitychange',function(){document.hidden?stop():start();});
+
+    start();
+  })();
 
   // contact -> mailto
   document.getElementById('send').addEventListener('click',function(){
